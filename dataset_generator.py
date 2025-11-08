@@ -172,7 +172,7 @@ class DatasetGenerator:
                 x = output_size[1] // 2 + r * math.cos(math.radians(i / d * 360))
                 y = output_size[0] // 2 + r * math.sin(math.radians(i / d * 360))
                 counts.append([x, y])
-            counts = [np.array(counts, dtype=np.int)]
+            counts = [np.array(counts, dtype=int)]
             bg_mask = cv2.drawContours(np.zeros([*output_size, 1], dtype=np.float32), counts, 0, (1.0,), cv2.FILLED)
             bg = bg * bg_mask + 1 - bg_mask
             if self.random.randint(0, 1) == 0:
